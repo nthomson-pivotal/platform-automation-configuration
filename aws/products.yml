@@ -10,7 +10,7 @@ products:
 
   # ==== Ops Manager
   opsman:
-    product-version: "2.4.9"
+    product-version: "2.7.0"
     pivnet-product-slug: ops-manager
     pivnet-api-token: ((pivnet_token))
     pivnet-file-glob: "*AWS.yml"
