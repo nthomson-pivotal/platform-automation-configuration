@@ -1,0 +1,12 @@
+---
+opsman-configuration:
+  aws:
+    region: us-west-2
+    vm_name: ops-manager-pas
+    vpc_subnet_id: subnet-0a3c0163106616bdf
+    security_group_id: sg-0dd4f34dfd911350d
+    key_pair_name: pas-ops-manager-key
+    private_ip: 10.0.0.2
+    public_ip: 35.163.2.22
+    use_instance_profile: true
+    iam_instance_profile_name: pas_ops_manager
