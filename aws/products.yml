@@ -13,4 +13,4 @@ products:
     product-version: "2.7.0"
     pivnet-product-slug: ops-manager
     pivnet-api-token: ((pivnet_token))
-    pivnet-file-glob: "*AWS.yml"
+    pivnet-file-glob: "*aws*.yml"
