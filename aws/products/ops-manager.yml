@@ -6,7 +6,7 @@ opsman-configuration:
     vpc_subnet_id: subnet-0a3c0163106616bdf
     security_group_id: sg-0dd4f34dfd911350d
     key_pair_name: pas-ops-manager-key
-    private_ip: 10.0.0.2
+    #private_ip: 10.0.0.2
     public_ip: 35.163.2.22
     access_key_id: ((aws.access_key_id))
     secret_access_key: ((aws.secret_access_key))
