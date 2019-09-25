@@ -10,3 +10,4 @@ opsman-configuration:
     public_ip: 35.163.2.22
     access_key_id: ((aws.access_key_id))
     secret_access_key: ((aws.secret_access_key))
+    iam_instance_profile_name: pas_ops_manager
