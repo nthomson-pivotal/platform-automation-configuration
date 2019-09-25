@@ -1,0 +1,139 @@
+az-configuration:
+- name: us-west-2c
+- name: us-west-2b
+- name: us-west-2a
+network-assignment:
+  network:
+    name: management
+  other_availability_zones: []
+  singleton_availability_zone:
+    name: us-west-2a
+networks-configuration:
+  icmp_checks_enabled: false
+  networks:
+  - name: management
+    subnets:
+    - iaas_identifier: subnet-05f5b4046b197c042
+      cidr: 10.0.16.0/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.1
+      reserved_ip_ranges: 10.0.16.0-10.0.16.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-01db624651d4635ff
+      cidr: 10.0.16.16/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.17
+      reserved_ip_ranges: 10.0.16.16-10.0.16.25
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-0cd116bfc350dcf62
+      cidr: 10.0.16.32/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.33
+      reserved_ip_ranges: 10.0.16.32-10.0.16.41
+      availability_zone_names:
+      - us-west-2c
+  - name: pas
+    subnets:
+    - iaas_identifier: subnet-02ca67ddef3f98ae7
+      cidr: 10.0.4.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.4.1
+      reserved_ip_ranges: 10.0.4.0-10.0.4.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-04bee45efc9369c3b
+      cidr: 10.0.5.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.5.1
+      reserved_ip_ranges: 10.0.5.0-10.0.5.9
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-07028d2e447e20baf
+      cidr: 10.0.6.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.6.1
+      reserved_ip_ranges: 10.0.6.0-10.0.6.9
+      availability_zone_names:
+      - us-west-2c
+  - name: services
+    subnets:
+    - iaas_identifier: subnet-0d3123593942ea524
+      cidr: 10.0.8.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.8.1
+      reserved_ip_ranges: 10.0.8.0-10.0.8.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-02c727acb8c55c6af
+      cidr: 10.0.9.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.9.1
+      reserved_ip_ranges: 10.0.9.0-10.0.9.9
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-0ee5584577053ef1c
+      cidr: 10.0.10.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.10.1
+      reserved_ip_ranges: 10.0.10.0-10.0.10.9
+      availability_zone_names:
+      - us-west-2c
+properties-configuration:
+  director_configuration:
+    blobstore_type: s3
+    bosh_recreate_on_next_deploy: false
+    bosh_recreate_persistent_disks_on_next_deploy: false
+    database_type: internal
+    director_worker_count: 5
+    encryption: []
+    hm_emailer_options:
+      enabled: false
+    hm_pager_duty_options:
+      enabled: false
+    identification_tags: {}
+    job_configuration_on_tmpfs: false
+    keep_unreachable_vms: false
+    ntp_servers_string: time.google.com
+    post_deploy_enabled: false
+    resurrector_enabled: true
+    retry_bosh_deploys: true
+    s3_blobstore_options:
+      backup_bucket_name: ""
+      backup_bucket_region: ""
+      backup_strategy: none
+      bucket_name: pas-ops-manager-bucket-21280
+      endpoint: https://s3.us-west-2.amazonaws.com
+      region: us-west-2
+      signature_version: "4"
+    skip_director_drain: false
+  dns_configuration: []
+  security_configuration:
+    opsmanager_root_ca_trusted_certs: false
+  syslog_configuration:
+    enabled: false
+resource-configuration:
+  compilation:
+    instances: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+  director:
+    instances: automatic
+    persistent_disk:
+      size_mb: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+vmextensions-configuration:
+- name: web_lb_security_groups
+  cloud_properties:
+    security_groups:
+    - web_lb_security_group
+    - vms_security_group
+- name: ssh_lb_security_groups
+  cloud_properties:
+    security_groups:
+    - ssh_lb_security_group
+    - vms_security_group
