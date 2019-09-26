@@ -120,14 +120,3 @@ properties-configuration:
     opsmanager_root_ca_trusted_certs: false
   syslog_configuration:
     enabled: false
-vmextensions-configuration:
-- name: web_lb_security_groups
-  cloud_properties:
-    security_groups:
-    - web_lb_security_group
-    - vms_security_group
-- name: ssh_lb_security_groups
-  cloud_properties:
-    security_groups:
-    - ssh_lb_security_group
-    - vms_security_group
