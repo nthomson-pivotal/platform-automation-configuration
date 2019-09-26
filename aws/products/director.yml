@@ -97,7 +97,6 @@ properties-configuration:
     bosh_recreate_persistent_disks_on_next_deploy: false
     database_type: internal
     director_worker_count: 5
-    encryption: []
     hm_emailer_options:
       enabled: false
     hm_pager_duty_options:
