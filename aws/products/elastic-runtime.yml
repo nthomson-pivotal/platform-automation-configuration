@@ -40,10 +40,10 @@ network-properties:
 resource-config:
   control:
     elb_names:
-    - pas-ssh-tg
+    - alb:pas-ssh-tg
     additional_vm_extensions: [ssh_lb_security_groups]
   router:
-    elb_names: [pas-web-tg-80, pas-web-tg-443]
+    elb_names: [alb:pas-web-tg-80, alb:pas-web-tg-443]
     additional_vm_extensions: [web_lb_security_groups]
   compute:
     instances: 1
