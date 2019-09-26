@@ -10,21 +10,10 @@ properties-configuration:
     ssh_private_key: ((iaas_ssh_private_key))
 
   director_configuration:
-    blobstore_type: s3
-    bosh_recreate_on_next_deploy: false
-    bosh_recreate_persistent_disks_on_next_deploy: false
-    database_type: internal
-    director_worker_count: 5
-    hm_emailer_options:
-      enabled: false
-    hm_pager_duty_options:
-      enabled: false
-    job_configuration_on_tmpfs: false
-    keep_unreachable_vms: false
     ntp_servers_string: time.google.com
-    post_deploy_enabled: false
     resurrector_enabled: true
-    retry_bosh_deploys: true
+    retry_bosh_deploys: false
+    blobstore_type: s3
     s3_blobstore_options:
       backup_bucket_name: ""
       backup_bucket_region: ""
@@ -35,13 +24,6 @@ properties-configuration:
       signature_version: "4"
       access_key: ((s3.access_key_id))
       secret_key: ((s3.secret_access_key))
-    skip_director_drain: false
-
-  security_configuration:
-    opsmanager_root_ca_trusted_certs: false
-
-  syslog_configuration:
-    enabled: false
 
 az-configuration:
 - name: us-west-2c
@@ -50,7 +32,6 @@ az-configuration:
 network-assignment:
   network:
     name: management
-  other_availability_zones: []
   singleton_availability_zone:
     name: us-west-2a
 networks-configuration:
