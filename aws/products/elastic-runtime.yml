@@ -41,13 +41,12 @@ resource-config:
   control:
     elb_names:
     - pas-ssh-tg
+    additional_vm_extensions: [ssh_lb_security_groups]
   router:
     elb_names: [pas-web-tg-80, pas-web-tg-443]
     additional_vm_extensions: [web_lb_security_groups]
   compute:
     instances: 1
-  control:
-    additional_vm_extensions: [ssh_lb_security_groups]
   blobstore:
     instances: 0
   mysql_monitor:
