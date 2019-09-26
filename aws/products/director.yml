@@ -115,8 +115,12 @@ properties-configuration:
       endpoint: https://s3.us-west-2.amazonaws.com
       region: us-west-2
       signature_version: "4"
+      access_key: ((s3.access_key_id))
+      secret_key: ((s3.secret_access_key))
     skip_director_drain: false
+
   security_configuration:
     opsmanager_root_ca_trusted_certs: false
+
   syslog_configuration:
     enabled: false
