@@ -2,6 +2,7 @@ properties-configuration:
   iaas-configurations:
   - additional_cloud_properties: {}
     encrypted: true
+    access_type: roles
     iam_instance_profile: pas_ops_manager
     key_pair_name: pas-ops-manager-key
     name: default
@@ -42,7 +43,7 @@ properties-configuration:
 
   syslog_configuration:
     enabled: false
-    
+
 az-configuration:
 - name: us-west-2c
 - name: us-west-2b
