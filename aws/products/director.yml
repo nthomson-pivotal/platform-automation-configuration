@@ -1,5 +1,5 @@
 properties-configuration:
-  iaas-configuration:
+  iaas_configuration:
     encrypted: true
     access_type: roles
     iam_instance_profile: pas_ops_manager
@@ -42,3 +42,86 @@ properties-configuration:
 
   syslog_configuration:
     enabled: false
+
+az-configuration:
+- name: us-west-2c
+- name: us-west-2b
+- name: us-west-2a
+network-assignment:
+  network:
+    name: management
+  other_availability_zones: []
+  singleton_availability_zone:
+    name: us-west-2a
+networks-configuration:
+  icmp_checks_enabled: false
+  networks:
+  - name: management
+    subnets:
+    - iaas_identifier: subnet-05f5b4046b197c042
+      cidr: 10.0.16.0/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.1
+      reserved_ip_ranges: 10.0.16.0-10.0.16.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-01db624651d4635ff
+      cidr: 10.0.16.16/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.17
+      reserved_ip_ranges: 10.0.16.16-10.0.16.25
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-0cd116bfc350dcf62
+      cidr: 10.0.16.32/28
+      dns: 10.0.0.2
+      gateway: 10.0.16.33
+      reserved_ip_ranges: 10.0.16.32-10.0.16.41
+      availability_zone_names:
+      - us-west-2c
+  - name: pas
+    subnets:
+    - iaas_identifier: subnet-02ca67ddef3f98ae7
+      cidr: 10.0.4.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.4.1
+      reserved_ip_ranges: 10.0.4.0-10.0.4.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-04bee45efc9369c3b
+      cidr: 10.0.5.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.5.1
+      reserved_ip_ranges: 10.0.5.0-10.0.5.9
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-07028d2e447e20baf
+      cidr: 10.0.6.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.6.1
+      reserved_ip_ranges: 10.0.6.0-10.0.6.9
+      availability_zone_names:
+      - us-west-2c
+  - name: services
+    subnets:
+    - iaas_identifier: subnet-0d3123593942ea524
+      cidr: 10.0.8.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.8.1
+      reserved_ip_ranges: 10.0.8.0-10.0.8.9
+      availability_zone_names:
+      - us-west-2a
+    - iaas_identifier: subnet-02c727acb8c55c6af
+      cidr: 10.0.9.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.9.1
+      reserved_ip_ranges: 10.0.9.0-10.0.9.9
+      availability_zone_names:
+      - us-west-2b
+    - iaas_identifier: subnet-0ee5584577053ef1c
+      cidr: 10.0.10.0/24
+      dns: 10.0.0.2
+      gateway: 10.0.10.1
+      reserved_ip_ranges: 10.0.10.0-10.0.10.9
+      availability_zone_names:
+      - us-west-2c
