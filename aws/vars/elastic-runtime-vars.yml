@@ -1,0 +1,2 @@
+ssl_cert: ((pas_ssl_cert.certificate))
+ssl_key: ((pas_ssl_cert.private_key))
