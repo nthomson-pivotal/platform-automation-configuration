@@ -1,3 +1,48 @@
+properties-configuration:
+  iaas-configurations:
+  - additional_cloud_properties: {}
+    encrypted: true
+    iam_instance_profile: pas_ops_manager
+    key_pair_name: pas-ops-manager-key
+    name: default
+    region: us-west-2
+    security_group: sg-0bcde59a48b69510a
+    ssh_private_key: ((iaas_ssh_private_key))
+
+  director_configuration:
+    blobstore_type: s3
+    bosh_recreate_on_next_deploy: false
+    bosh_recreate_persistent_disks_on_next_deploy: false
+    database_type: internal
+    director_worker_count: 5
+    hm_emailer_options:
+      enabled: false
+    hm_pager_duty_options:
+      enabled: false
+    job_configuration_on_tmpfs: false
+    keep_unreachable_vms: false
+    ntp_servers_string: time.google.com
+    post_deploy_enabled: false
+    resurrector_enabled: true
+    retry_bosh_deploys: true
+    s3_blobstore_options:
+      backup_bucket_name: ""
+      backup_bucket_region: ""
+      backup_strategy: none
+      bucket_name: pas-ops-manager-bucket-21280
+      endpoint: https://s3.us-west-2.amazonaws.com
+      region: us-west-2
+      signature_version: "4"
+      access_key: ((s3.access_key_id))
+      secret_key: ((s3.secret_access_key))
+    skip_director_drain: false
+
+  security_configuration:
+    opsmanager_root_ca_trusted_certs: false
+
+  syslog_configuration:
+    enabled: false
+    
 az-configuration:
 - name: us-west-2c
 - name: us-west-2b
@@ -80,47 +125,3 @@ networks-configuration:
       reserved_ip_ranges: 10.0.10.0-10.0.10.9
       availability_zone_names:
       - us-west-2c
-properties-configuration:
-  iaas-configurations:
-  - additional_cloud_properties: {}
-    encrypted: true
-    iam_instance_profile: pas_ops_manager
-    key_pair_name: pas-ops-manager-key
-    name: default
-    region: us-west-2
-    security_group: sg-0bcde59a48b69510a
-    ssh_private_key: ((iaas_ssh_private_key))
-
-  director_configuration:
-    blobstore_type: s3
-    bosh_recreate_on_next_deploy: false
-    bosh_recreate_persistent_disks_on_next_deploy: false
-    database_type: internal
-    director_worker_count: 5
-    hm_emailer_options:
-      enabled: false
-    hm_pager_duty_options:
-      enabled: false
-    job_configuration_on_tmpfs: false
-    keep_unreachable_vms: false
-    ntp_servers_string: time.google.com
-    post_deploy_enabled: false
-    resurrector_enabled: true
-    retry_bosh_deploys: true
-    s3_blobstore_options:
-      backup_bucket_name: ""
-      backup_bucket_region: ""
-      backup_strategy: none
-      bucket_name: pas-ops-manager-bucket-21280
-      endpoint: https://s3.us-west-2.amazonaws.com
-      region: us-west-2
-      signature_version: "4"
-      access_key: ((s3.access_key_id))
-      secret_key: ((s3.secret_access_key))
-    skip_director_drain: false
-
-  security_configuration:
-    opsmanager_root_ca_trusted_certs: false
-
-  syslog_configuration:
-    enabled: false
