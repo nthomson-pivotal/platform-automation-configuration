@@ -101,7 +101,6 @@ properties-configuration:
       enabled: false
     hm_pager_duty_options:
       enabled: false
-    identification_tags: {}
     job_configuration_on_tmpfs: false
     keep_unreachable_vms: false
     ntp_servers_string: time.google.com
@@ -117,24 +116,10 @@ properties-configuration:
       region: us-west-2
       signature_version: "4"
     skip_director_drain: false
-  dns_configuration: []
   security_configuration:
     opsmanager_root_ca_trusted_certs: false
   syslog_configuration:
     enabled: false
-resource-configuration:
-  compilation:
-    instances: automatic
-    instance_type:
-      id: automatic
-    internet_connected: false
-  director:
-    instances: automatic
-    persistent_disk:
-      size_mb: automatic
-    instance_type:
-      id: automatic
-    internet_connected: false
 vmextensions-configuration:
 - name: web_lb_security_groups
   cloud_properties:
